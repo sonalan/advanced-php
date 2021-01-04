@@ -27,9 +27,9 @@ class MagicBox{
         // TODO: Implement __wakeup() method.
     }
 
-    public function __invoke()
+    public function __invoke($greeting,$name)
     {
-        // TODO: Implement __invoke() method.
+        return "{$greeting} {$name} it's a lovely day";
     }
 
     public function __call($name,$arguments)
