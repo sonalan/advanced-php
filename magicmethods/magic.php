@@ -3,7 +3,7 @@ namespace Magicmethods;
 
 class MagicBox{
 
-    public $instances;
+    public static $instances;
     public $someProperty="Hello world";
 
 
