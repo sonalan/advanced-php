@@ -3,11 +3,13 @@ namespace Magicmethods;
 
 class MagicBox{
 
+    public $instances;
     public $someProperty="Hello world";
+
 
     public function __construct()
     {
-    	echo "Magic just started\n";
+        echo "Magic just started\n";
 
     	//Do your magic here
     }
@@ -65,6 +67,52 @@ class MagicBox{
     public function __call($name,$arguments)
     {
         // TODO: Implement __call() method.
+    }
+
+    public function __isset($name)
+    {
+        // TODO: Implement __isset() method.
+    }
+
+    public function __unset($name)
+    {
+        // TODO: Implement __unset() method.
+    }
+
+    public function __serialize(): array
+    {
+        return [
+            'className' => get_class($this),
+            'someProperty' => $this->someProperty,
+            'instances' => $this->instances,
+        ];
+    }
+
+    public function __unserialize(array $data): void
+    {
+        $this->someProperty=$data["someProperty"];
+        $this->someProperty2=$data["someProperty2"];
+        $this->someProperty3=$data["someProperty4"];
+    }
+
+    public static function __set_state($an_array)
+    {
+        // TODO: Implement __set_state() method.
+    }
+
+    public function __clone()
+    {
+        ++static::$instances;
+    }
+
+    public function __debugInfo()
+    {
+        return ['someProperty' => $this->someProperty];
+    }
+
+    public function __destruct()
+    {
+        --static::$instances;
     }
 }
 
