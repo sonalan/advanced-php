@@ -1,7 +1,7 @@
 <?php
 namespace Traits;
 
-trait log{
+trait Log{
     protected function log($message){
         echo "{$message}\n";
     }

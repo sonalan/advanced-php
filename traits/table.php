@@ -4,6 +4,13 @@ require "trait.php";
 
 
 class Table{
-    use \Traits\log;
+    use \Traits\Log;
+
+    /**
+     * save method
+     */
+    public function save(){
+        $this->log("save started");
+    }
 
 }
