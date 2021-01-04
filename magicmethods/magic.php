@@ -12,6 +12,27 @@ class MagicBox{
     	//Do your magic here
     }
 
+    /**
+     * @param $name
+     * @param $value
+     */
+    public function __set($name,$value)
+    {
+        $this->$name=$value;
+    }
+
+    /**
+     * @param $name
+     * @return mixed
+     */
+    public function __get($name)
+    {
+        return $this->$name;
+    }
+
+    /**
+     * @return string
+     */
     public function __toString()
     {
         return $this->someProperty;
@@ -27,11 +48,20 @@ class MagicBox{
         // TODO: Implement __wakeup() method.
     }
 
+    /**
+     * @param $greeting
+     * @param $name
+     * @return string
+     */
     public function __invoke($greeting,$name)
     {
         return "{$greeting} {$name} it's a lovely day";
     }
 
+    /**
+     * @param $name
+     * @param $arguments
+     */
     public function __call($name,$arguments)
     {
         // TODO: Implement __call() method.
