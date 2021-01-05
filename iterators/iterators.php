@@ -15,3 +15,15 @@ class CsvIterator extends  \IteratorIterator{
 }
 
 
+class FilterRows extends \FilterIterator{
+
+    public function accept()
+    {
+        // get the current element;
+        $current=$this->getInnerIterator()->current();
+        if(count($current)==1){
+            return false;
+        }
+        return true;
+    }
+}
